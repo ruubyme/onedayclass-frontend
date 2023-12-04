@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.overlay {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.overlay a {
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.overlay div {
+  font-size: 0.8em;
+  padding-top: 5px;
+  margin-top: 10px;
+  color: #333333;
+  border-top: 1px solid #e0e0e0;
+}
+
+.overlay button {
+  margin-top: 10px;
+  padding: 3px 5px;
+  font-size: 0.8em;
+  color: gray;
+  background-color: #cccccc;
+  border-radius: 5px;
+}
+
+.speech-bubble-tail::after {
+  content: "";
+  position: absolute;
+  top: -8px; /* 꼬리를 상단으로 조정 */
+  left: 12px; /* 꼬리의 왼쪽 위치 조정 */
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid #bfdbfe; /* Tailwind의 blue-700 색상 */
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  color: gray; /* 원하는 색상으로 변경 */
+  opacity: 0.7; /* 원하는 투명도로 변경 */
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  transform: translateY(100%); /* 세로 중앙 정렬 */
+}
