@@ -1,9 +1,9 @@
-import { reviewDetailType } from "@/types/classTypes";
+import { reviewType } from "@/types/classTypes";
 import { useState } from "react";
 import { renderContent } from "../pages/student/class_detail/[class_id]";
 
 interface InstructorCommentProps {
-  review: reviewDetailType;
+  review: reviewType;
   onCommentSubmit: (reviewId: number, comment: string) => void;
   onDeleteComment: (reviewId: number) => void;
 }
