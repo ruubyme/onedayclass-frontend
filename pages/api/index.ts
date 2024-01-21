@@ -2,7 +2,7 @@ import { reviewType } from "@/types/classTypes";
 import axios from "axios";
 
 const flaskAPI = axios.create({
-  baseURL: "https://onedayclassbackend-production.up.railway.app",
+  baseURL: "https://onedayclassbackend-production.up.railway.app/api",
 });
 
 /**instructor 의 myClass 리스트 가져오기 */
