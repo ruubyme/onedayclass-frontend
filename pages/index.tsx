@@ -8,6 +8,7 @@ import { flaskAPI } from "./api";
 import jwtDecode from "jwt-decode";
 import { classData } from "@/types/classTypes";
 import NearbyClassList from "../components/NearbyClassList";
+import axios from "axios";
 
 interface MainPageProps {
   initialAddress: string;
@@ -84,6 +85,14 @@ const Main: React.FC<MainPageProps> = ({ initialAddress, initialClasses }) => {
     minLng: 0.0,
     maxLng: 0.0,
   });
+  const [test, setTest] = useState<string>("");
+
+  const testfunction = async () => {
+    const response = await axios.get(
+      "https://flask-production-5ca5.up.railway.app/print"
+    );
+    setTest(response.data);
+  };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
@@ -105,6 +114,7 @@ const Main: React.FC<MainPageProps> = ({ initialAddress, initialClasses }) => {
       setAddress(savedAddress);
       setInputValue(savedAddress);
     }
+    testfunction();
   }, []);
 
   return (
