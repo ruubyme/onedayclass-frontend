@@ -88,9 +88,7 @@ const Main: React.FC<MainPageProps> = ({ initialAddress, initialClasses }) => {
   const [test, setTest] = useState<string>("");
 
   const testfunction = async () => {
-    const response = await axios.get(
-      "https://flask-production-5ca5.up.railway.app/print"
-    );
+    const response = await flaskAPI.get("/print");
     setTest(response.data);
   };
 
