@@ -42,7 +42,7 @@ const Signup: React.FC = () => {
   const onSubmit = async (data: UserInformationType) => {
     try {
       //입력한 데이터를 서버로 전송
-      const response = await flaskAPI.post("/api/signup", data);
+      const response = await flaskAPI.post("/signup", data);
       const responseData = response.data;
       if (response.status === 200 && responseData.status === "error") {
         toast.error(responseData.message);
