@@ -89,7 +89,7 @@ const Main: React.FC<MainPageProps> = ({ initialAddress, initialClasses }) => {
 
   const testfunction = async () => {
     const response = await axios.get(
-      "https://port-0-flask-199u12dlrwtlmsu.sel5.cloudtype.app/print"
+      "https://flask-production-5ca5.up.railway.app/print"
     );
     setTest(response.data);
   };
