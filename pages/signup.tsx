@@ -5,6 +5,7 @@ import Script from "next/script";
 import { useRouter } from "next/router";
 import { UserInformationType } from "@/types/userTypes";
 import { toast } from "react-toastify";
+import { flaskAPI } from "./api";
 
 declare global {
   interface Window {
@@ -41,15 +42,12 @@ const Signup: React.FC = () => {
   const onSubmit = async (data: UserInformationType) => {
     try {
       //입력한 데이터를 서버로 전송
-      const response = await axios.post(
-        "http://127.0.0.1:8080/api/signup",
-        data
-      );
+      const response = await flaskAPI.post("/api/signup", data);
       const responseData = response.data;
       if (response.status === 200 && responseData.status === "error") {
         toast.error(responseData.message);
       } else if (response.status === 200 && responseData.status === "success") {
-        router.push("http://localhost:3000/login");
+        router.push("http://onedayclass-frontend.vercel.app/login");
       }
     } catch (error) {
       console.error(error);
