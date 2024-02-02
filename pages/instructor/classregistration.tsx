@@ -9,7 +9,7 @@ import { createGeocoder } from "../../components/Map";
 import { useKakaoMapScript } from "../../components/useKakaoMapScript";
 import { GetServerSidePropsContext } from "next";
 import { parseCookies } from "nookies";
-import { fetchMyClassList } from "../api";
+import { fetchMyClassList, flaskAPI } from "../api";
 import jwtDecode from "jwt-decode";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
@@ -135,11 +135,9 @@ const ClassRegistration: React.FC<ClassRegistrationProps> = ({ classList }) => {
       return;
     }
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:8080/api/register_class",
-        data,
-        { responseType: "json" }
-      );
+      const response = await flaskAPI.post("/register_class", data, {
+        responseType: "json",
+      });
       const responseData = response.data;
       //등록 성공
       if (response.status === 200 && responseData.status === "success") {
@@ -162,8 +160,8 @@ const ClassRegistration: React.FC<ClassRegistrationProps> = ({ classList }) => {
 
   const onSubmitTime = async (data: ClassTimeForm) => {
     try {
-      const response = await axios.post(
-        `http://127.0.0.1:8080/api/add_class_time/${selectedClass}`,
+      const response = await flaskAPI.post(
+        `/add_class_time/${selectedClass}`,
         data,
         { responseType: "json" }
       );
