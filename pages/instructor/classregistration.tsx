@@ -151,7 +151,6 @@ const ClassRegistration: React.FC<ClassRegistrationProps> = ({ classList }) => {
       } else if (response.status === 200 && responseData.status === "error") {
         //등록실패
         toast.error(responseData.message);
-        console.log(responseData.message);
       }
     } catch (error) {
       console.error("Error:", error);
@@ -172,7 +171,6 @@ const ClassRegistration: React.FC<ClassRegistrationProps> = ({ classList }) => {
       } else if (response.status === 200 && responseData.status === "error") {
         //등록실패
         toast.error(responseData.message);
-        console.log(responseData.message);
       }
     } catch (error) {
       console.error("Error:", error);

@@ -59,19 +59,24 @@ const PaymentPage: React.FC<PaymentPageProps> = ({ classInfo }) => {
             <h2 className="text-xl font-semibold mb-2 text-gray-700">
               {classInfo.class_name}
             </h2>
-            <p className="text-blue-500 mb-2">
-              {formatDate(classInfo.class_date)}
-            </p>
             <p className="text-lg font-bold mb-4 text-gray-700">
               결제금액: {classInfo.cost} 원
             </p>
+            <p className="text-blue-500 mb-2">
+              {formatDate(classInfo.class_date)}
+            </p>
           </div>
-          <button
-            className="rounded-md hover:bg-blue-300 "
-            onClick={handlePayment}
-          >
-            결제하기
-          </button>
+          <div className="flex justify-between my-1">
+            <p className="text-sm text-gray-700">
+              선택하신 클래스 수강 정보가 맞습니까?
+            </p>
+            <button
+              className="text-sm hover:text-blue-700"
+              onClick={handlePayment}
+            >
+              결제하기
+            </button>
+          </div>
         </div>
       ) : (
         <p className="text-gray-600">클래스 정보를 불러오는 중 ...</p>

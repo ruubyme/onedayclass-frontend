@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { flaskAPI } from "../pages/api";
+import Spinner from "./Spinner";
 
 interface AttendeesModalProps {
   classDateId: number | null;
@@ -22,16 +23,18 @@ const AttendeesModal: React.FC<AttendeesModalProps> = ({
   onClose,
 }) => {
   const [attendees, setAttendees] = useState<attendeeType[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchAttendeesList = async (classDateId: number) => {
+    setIsLoading(true);
     const response = await flaskAPI(`/${classDateId}/attendees`);
     const responseData = response.data;
     if (responseData.status === "success") {
-      console.log(responseData.data);
       setAttendees(responseData.data);
     } else {
       console.error(responseData.message);
     }
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -51,7 +54,9 @@ const AttendeesModal: React.FC<AttendeesModalProps> = ({
             닫기
           </button>
         </div>
-        {attendees.length === 0 ? (
+        {isLoading ? (
+          <Spinner />
+        ) : attendees.length === 0 ? (
           <div className="my-4">예약자가 없습니다.</div>
         ) : (
           <ul className="list-none p-0 my-4 divide-y divide-gray-200">

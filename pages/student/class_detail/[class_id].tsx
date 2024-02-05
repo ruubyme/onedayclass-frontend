@@ -48,7 +48,6 @@ export const getServerSideProps = async (
 
     //class 예약 가능한 시간 가져오기
     const queryParams = userId ? `?student_id=${userId}` : "";
-    console.log(queryParams);
     const classDatesResponse = await flaskAPI.get(
       `/class_dates/${classId}${queryParams}`
     );
@@ -207,7 +206,6 @@ const ClassDetailPage: React.FC<ClassDetailPageProps> = ({
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        console.error("Booking error: ", error);
         if (error.response && error.response.status === 400) {
           toast.error(error.response.data.message);
         } else if (error.response && error.response.status === 401) {

@@ -187,7 +187,7 @@ const ClassEditPage: React.FC<ClassEditPageProps> = ({ classDetailInfo }) => {
         }
         toast.success("성공적으로 수정되었습니다.");
       } else {
-        console.log("Server Error: ", responseData.message);
+        toast.error("Server Error: ", responseData.message);
       }
     } catch (error) {
       console.error("Error: ", error);

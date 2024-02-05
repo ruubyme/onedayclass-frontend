@@ -52,7 +52,6 @@ const Signup: React.FC = () => {
     } catch (error) {
       console.error(error);
     }
-    console.log(data);
   };
 
   //주소 api 사용

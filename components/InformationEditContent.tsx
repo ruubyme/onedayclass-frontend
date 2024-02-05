@@ -96,7 +96,6 @@ const InformationEditContent: React.FC = () => {
         setUserInfoData(data);
         toast.success("성공적으로 수정되었습니다.");
       } else {
-        console.log("Server Error: ", responseData.message);
       }
     } catch (error) {
       console.error("Error: ", error);
@@ -121,7 +120,6 @@ const InformationEditContent: React.FC = () => {
         reset();
       } else {
         toast.error(responseData.message);
-        console.log("Server Error: ", responseData.message);
       }
     } catch (error) {
       console.error("Error: ", error);

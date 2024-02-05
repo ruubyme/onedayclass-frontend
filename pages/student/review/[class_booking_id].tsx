@@ -78,7 +78,6 @@ const ReviewWritePage: React.FC<ReviewWritePageProps> = ({
         router.push("/student/myPage");
       } else {
         toast.error(responseData.message);
-        console.log("Server Error: ", response.data.message);
       }
     } catch (error) {
       console.error(error);

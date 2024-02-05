@@ -9,7 +9,6 @@ const PaymentSuccessPage = () => {
 
   useEffect(() => {
     const confirmPayment = async () => {
-      console.log(pg_token, classDateId);
       if (!pg_token || !classDateId) {
         return;
       }

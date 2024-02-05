@@ -11,7 +11,6 @@ const MyPage: React.FC = () => {
   const router = useRouter();
   useEffect(() => {
     if (!userId) {
-      console.log(userId);
       router.push("/");
       toast.error("로그인이 필요한 기능입니다.");
     }

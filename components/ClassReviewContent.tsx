@@ -25,7 +25,6 @@ const ClassReviewContent: React.FC<ClassReviewContentProps> = ({
       <div className="text-sm">
         <Swiper
           onSwiper={(swiper) => {
-            console.log(swiper);
             swiperRef.current = swiper;
           }}
           navigation={true}
