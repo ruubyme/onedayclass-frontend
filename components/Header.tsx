@@ -5,7 +5,7 @@ import logoImage from "../public/images/logoImage.png";
 import { useUser } from "@/contexts/UserContext";
 
 const Header: React.FC = () => {
-  const { isLogin } = useUser();
+  const { isLogin, role } = useUser();
 
   return (
     <header className="flex justify-between items-center p-3 pb-5 shadow-md">
@@ -15,13 +15,15 @@ const Header: React.FC = () => {
       <div>
         {isLogin ? (
           <div className="flex items-center space-x-2">
-            <Image
-              src={userImage}
-              width={20}
-              height={20}
-              alt="userImage"
-              className="rounded-full"
-            />
+            <Link href={`/${role}/myPage`}>
+              <Image
+                src={userImage}
+                width={20}
+                height={20}
+                alt="userImage"
+                className="rounded-full"
+              />
+            </Link>
 
             <Link href="/logout">
               <div className="text-neutral-400 text-sm">logout</div>
