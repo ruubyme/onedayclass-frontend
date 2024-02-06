@@ -5,6 +5,8 @@ import { flaskAPI } from "./api";
 import Link from "next/link";
 import { useUser } from "@/contexts/UserContext";
 import { toast } from "react-toastify";
+import loginBanner from "../public/images/loginBanner.png";
+import Image from "next/image";
 
 interface LoginForm {
   email: string;
@@ -69,7 +71,14 @@ const Login: React.FC = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white rounded-lg shadow-lg p-8 m-4 max-w-xs w-full">
+      <Image
+        src={loginBanner}
+        width={400}
+        height={450}
+        alt="loginBanner"
+        className="hidden lg:block w-2/1 animate-loginBanner"
+      />
+      <div className="bg-white rounded-lg shadow-lg p-8 m-4 max-w-xs w-full animate-login">
         <h2 className="text-2xl font-bold mb-8 text-gray-700">Login</h2>
         <form onSubmit={handleSubmit} className="space-y-3">
           <div>

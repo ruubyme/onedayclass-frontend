@@ -18,6 +18,23 @@ const config: Config = {
         square: "square",
         roman: "upper-roman",
       },
+      keyframes: {
+        loginBanner: {
+          "0%": { transform: "translateX(245px)" },
+          "50%": { transform: "translateX(245px)" },
+          "100%": { transform: "translateY(0)" },
+        },
+        login: {
+          "0%": { transform: "translateX(-245px)", opacity: "0" },
+          "50%": { transform: "translateX(-245px)", opacity: "0" },
+          "75%": { opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+      },
+      animation: {
+        loginBanner: "loginBanner 2s ease-in-out",
+        login: "login 2s ease-in-out",
+      },
     },
   },
   plugins: [],
